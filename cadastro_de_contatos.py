@@ -26,11 +26,11 @@ def cadastrar_contato(id):
         'telefone': telefone  # Mudei 'Telefone' para 'telefone' para ser consistente
     }
 
-    # c: Copia o dicionário para a lista de contatos
+    # Copia o dicionário para a lista de contatos
     lista_contatos.append(contato.copy())
     print('Contato cadastrado com sucesso!')
 
-# D: Função para consultar contatos
+# Função para consultar contatos
 def consultar_contatos():
     while True:
         print('-'*20,'MENU CONSULTAR CONTATO','-'*20)
@@ -44,7 +44,7 @@ def consultar_contatos():
         opcao = input("Digite sua escolha (1-4): ")
 
         if opcao == '1':
-            # i: Apresentar todos os contatos
+            # Apresentar todos os contatos
             if lista_contatos:  # Verifica se a lista não está vazia
                 for contato in lista_contatos:
                     print('-' * 30)  # Linha separadora
@@ -55,7 +55,7 @@ def consultar_contatos():
             else:
                 print("Nenhum contato cadastrado.")
         elif opcao == '2':
-            # ii: Consultar por Id
+            # Consultar por Id
             id_consulta = input("Digite o id do contato: ")
             contato_encontrado = next((c for c in lista_contatos if c['id'] == int(id_consulta)), None)
             if contato_encontrado:
@@ -68,7 +68,7 @@ def consultar_contatos():
             else:
                 print("Contato não encontrado.")
         elif opcao == '3':
-            # iii: Consultar por Atividade
+            # Consultar por Atividade
             atividade = input("Digite a atividade: ")
             contatos_encontrados = [c for c in lista_contatos if c['atividade'].lower() == atividade.lower()]
             if contatos_encontrados:
@@ -82,7 +82,7 @@ def consultar_contatos():
             else:
                 print("Nenhum contato encontrado para esta atividade.")
         elif opcao == '4':
-            return  # iv: Retornar ao menu principal
+            return  # Retornar ao menu principal
         else:
             print("Opção inválida. Por favor, tente novamente.")  # v
 
@@ -106,7 +106,7 @@ def remover_contato():
             print("Id inválido. Por favor, tente novamente.")  # c
 
 
-# F: Estrutura do menu principal
+# Estrutura do menu principal
 while True:
     print('-' * 20)
     print("Escolha uma opção:")
@@ -119,14 +119,14 @@ while True:
     escolha = input("Digite sua escolha (1-4): ")
 
     if escolha == '1':
-        id_global += 1  # i: Incrementar o id global
+        id_global += 1  # Incrementar o id global
         cadastrar_contato(id_global)  # ii: Chamar a função de cadastro
     elif escolha == '2':
-        consultar_contatos()  # iii: Chamar a função de consulta
+        consultar_contatos()  # Chamar a função de consulta
     elif escolha == '3':
-        remover_contato()  # iv: Chamar a função de remoção
+        remover_contato()  # Chamar a função de remoção
     elif escolha == '4':
         print("Encerrando o programa.")
-        break  # v: Sair do programa
+        break  # Sair do programa
     else:
         print("Opção inválida. Por favor, tente novamente.")  # vi
